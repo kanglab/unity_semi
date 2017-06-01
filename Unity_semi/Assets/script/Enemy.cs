@@ -24,7 +24,20 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		Debug.Log("!!!");
+        
+		
+        if (col.tag == "Player")
+        {
+            Debug.Log("GameOver");
+            GameOver.setGameOver();
+        }
+        if (col.tag == "bullet")
+        {
+            Debug.Log("Enemy down");
+        }
+
 	}
-	
+
+    
+
 }
