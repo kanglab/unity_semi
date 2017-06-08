@@ -8,6 +8,10 @@ public class Player : MonoBehaviour {
 	public Transform muzzle;	//position bullet
 	public float speed = 3000f;
 
+	//オーディオ関係
+	public AudioClip shot;
+    private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +25,10 @@ public class Player : MonoBehaviour {
 			force = this.gameObject.transform.forward * speed;
 			bullets.GetComponent<Rigidbody>().AddForce(force);
 			bullets.transform.position = muzzle.position;
+
+			audioSource = gameObject.GetComponent<AudioSource>();
+        	audioSource.clip = shot;
+        	audioSource.Play ();
 		}
 
 		if (Input.GetKey(KeyCode.W)){
