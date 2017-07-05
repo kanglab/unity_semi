@@ -8,6 +8,9 @@ public class Player : MonoBehaviour {
 	public Transform muzzle;	//position bullet
 	public float speed = 3000f;
 
+	// リスタート位置
+	private Vector3 offset = Vector3.zero;
+
 	//オーディオ関係
 	public AudioClip shot;
     private AudioSource audioSource;
@@ -18,7 +21,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		if (Input.GetKeyDown(KeyCode.Z)){
 			GameObject bullets = GameObject.Instantiate(bullet)as GameObject;
 			Vector3 force;
